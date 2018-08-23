@@ -8,8 +8,7 @@ Modified for the continuous color WM task by Aditya Upadhyayula (supadhy6@jhu.ed
 
 - [PsychoPy](http://www.psychopy.org/)
 - [Python](http://www.python.org/)
-- [scikit learn] (http://scikit-learn.org/stable/) for continuous version of the task
-
+- [scikit learn] (http://scikit-learn.org/stable/)
 ## Documentation
 
 All documentation can be found [here]().
@@ -30,7 +29,3 @@ All documentation can be found [here]().
 
 ### V-1.0
 - Initial version
-
-## License
-
-This project uses the standard [MIT](/LICENSE.md) license.
