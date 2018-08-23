@@ -6,6 +6,8 @@
 #
 # Created by Thomas Nelson <tn90ca@gmail.com>
 #
+# Modified by Aditya Upadhyayula <supadhy6@jhu.edu>
+#
 # This script was developed for use by the Visual Cognitive Neuroscience Lab
 # at Brock University.
 
