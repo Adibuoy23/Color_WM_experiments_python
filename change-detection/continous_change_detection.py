@@ -77,7 +77,7 @@ TRIAL_colorS = [[-1, -1, -1],  # Black
                  [1, -1, -1],   # Red
                  [1, -1, 1],    # Purple
                  [1, 1, -1],    # Yellow
-                 [1, 0.145, 0]]     # Orange
+                 [1, 0.296, -1]]     # Orange
 
 
 NUM_TYPE = 3  # Number of different trial types
