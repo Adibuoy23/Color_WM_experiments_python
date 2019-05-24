@@ -160,7 +160,7 @@ class Trial(object):
         """
 
         # Generate a list of 12 positions around the center
-        for pos in xrange(12):
+        for pos in range(12):
             angle = math.radians(360 / 12 * pos)
             self.stim_positions.append([math.cos(angle)*STIM_POS_RADIUS, math.sin(angle)*STIM_POS_RADIUS])
         random.shuffle(self.stim_positions)  # Shuffle the list of positions
@@ -278,8 +278,8 @@ def set_trials():
     # Build all trials before we start experiment
     test_set = []
 
-    for rep in xrange(NUM_REPS):
-        for trial in xrange(NUM_TYPE):
+    for rep in range(NUM_REPS):
+        for trial in range(NUM_TYPE):
             set_trial = Trial(trial, rep)  # Initialize the Trial
             set_trial.set_positions()  # Set the stimuli positions for the Trial
             set_trial.set_colors()  # Set the stimuli colors for the Trial
@@ -350,7 +350,7 @@ def display_fixation(win, clk, fix, dur):
     FT = clk.getTime()
 
     if VERBOSE:
-        print "FIXATION SCREEN:", FT
+        print("FIXATION SCREEN:", FT)
 # end def display_fixation
 
 ## Porting psychopy's contains function to elementArrayStim
@@ -452,7 +452,7 @@ display_text = visual.TextStim(win=win, ori=0, name='text', text="", font='Arial
 fixation = visual.Circle(win, pos=[0, 0], radius=FIXATION_SIZE, lineColor=FIX_color, fillColor=FIX_color)
 
 stimuli = []
-for target in xrange(6):
+for target in range(6):
     stimuli.append(visual.Rect(win, width=STIM_SIZE, height=STIM_SIZE, fillColorSpace='rgb', lineColorSpace=''))
 
 # Present instructions for the experiment
@@ -489,7 +489,7 @@ for trial in test_set:
     win.flip()
 
     # Set up presentation stimuli screen
-    for target in xrange(trial.num_stimuli):
+    for target in range(trial.num_stimuli):
         stimuli[target].setPos((trial.stim_positions[target][0], trial.stim_positions[target][1]))
 
         if trial.stim_colors[target]==[-1,-1,-1]:
@@ -511,7 +511,7 @@ for trial in test_set:
 
     probe_stim = stimuli
     # Set up ISI screen
-    for target in xrange(trial.num_stimuli):
+    for target in range(trial.num_stimuli):
         probe_stim[target].setFillColor(None)
         probe_stim[target].setLineColor('Black')
         probe_stim[target].setAutoDraw(True)
@@ -546,7 +546,7 @@ for trial in test_set:
     event_clock.reset()
     win.flip()
     probe = random.sample(np.arange(0,trial.num_stimuli),1)[0]
-    for target in xrange(trial.num_stimuli):
+    for target in range(trial.num_stimuli):
         if target==probe:
             probe_Color = trial.stim_colors[target]
             probe_stim[target].setFillColor(None)
@@ -576,7 +576,7 @@ for trial in test_set:
     pressed = 1
     tic = event_clock.getTime()
     while pressed:
-        for target in xrange(trial.num_stimuli):
+        for target in range(trial.num_stimuli):
             mousePos = tuple(mouse.getPos()) # Get mouse coordinates
             loc = np.argmin(euclidean_distances(stim.xys,[mousePos]))
             min_dist = np.min(euclidean_distances(stim.xys,[mousePos]))
@@ -609,7 +609,7 @@ for trial in test_set:
     # Output trial results to file
     output = [subj_num, current_trial, trial.num_stimuli]
 
-    for target in xrange(6):
+    for target in range(6):
         try:
             output.append(color_NAMES[str(trial.stim_colors[target])])
         except:
@@ -620,7 +620,7 @@ for trial in test_set:
     writer.writerow(output)
     csv_file.flush()
 
-    for target in xrange(trial.num_stimuli):
+    for target in range(trial.num_stimuli):
         stimuli[target].setAutoDraw(False)
 # end of experiment
 
